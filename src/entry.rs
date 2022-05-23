@@ -42,7 +42,7 @@ impl Entry {
         let status_u8 = unsafe {
             u32_to_vec_u8(self.status,4)
         };
-        [key_size_u8,value_size_u8,status_u8,bytes_key,bytes_value].concat()
+        [bytes_key,bytes_value,key_size_u8,value_size_u8,status_u8].concat()
     }
     pub fn decode(&mut self,buffer: Vec<u8>) {
         let key:String = String::from_utf8_lossy(&buffer[ .. (self.key_size) as usize]).to_string();
