@@ -1,19 +1,21 @@
 #![feature(receiver_trait)]
 
-mod config;
-
 use std::io::{Read, Stdin, stdin};
 use tokio::sync::mpsc::{Sender,Receiver};
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpStream;
 use tokio::sync::mpsc;
-use crate::config::DBConfig;
+use crate::client_config::ClientConfig;
+
+mod client_config;
 
 // Batiodb client program
 #[tokio::main]
 async fn main() {
-    let config = DBConfig::new("config.yaml");
+    let config = ClientConfig::new("config.yaml");
     let mut client = TcpStream::connect(config.port.clone()).await.unwrap();
+    println!("connection: {:#?}",client);
+    println!("baby turn it on!!!");
     let (mut tx,mut rx):(Sender<String>,Receiver<String>) = tokio::sync::mpsc::channel(32);
 
     tokio::spawn(async move {
@@ -33,7 +35,7 @@ async fn main() {
                         break;
                     }
                     let value = std::str::from_utf8(&recv.as_slice()[..value_size]).unwrap();
-                    println!("{:?}",value);
+                    println!("value: {:?}",value);
                 }
             }
         }
