@@ -4,6 +4,8 @@ use crate::entry::{Entry, ENTRY_HEADER_SIZE};
 use crate::operations::{DELETE, INSERT, QUERY};
 
 /*
+    DB is a lockless database, and all requests are processed through a single thread.
+    Concurrency security is controlled by db_service.
     db_index is a B-tree structure that stores the mapping of each key to the offset of the data line in its file.
  */
 pub struct DB<'path> {
