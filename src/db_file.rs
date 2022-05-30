@@ -1,9 +1,12 @@
-use std::collections::BTreeMap;
 use std::fs::{File, OpenOptions};
-use std::io::{BufReader, Read, Seek, SeekFrom, Write};
-use crate::entry::{Entry, ENTRYHEADERSIZE};
-use crate::operations;
+use std::io::{Read, Seek, SeekFrom, Write};
+use crate::entry::{Entry, ENTRY_HEADER_SIZE};
 use crate::operations::{INSERT, QUERY};
+
+/*
+    DBfile is a separate DB file.
+     Offset records the last write position of the current DB.
+ */
 
 pub struct DBFile {
     file: File,
@@ -19,10 +22,13 @@ impl DBFile {
             offset: offset,
         })
     }
+
+    // When reading, scan forward from the end of the file.
+    // See the notes in the entry.rs for the reason.
     pub fn read(&mut self, mut offset: u64) -> Entry {
-        offset -= ENTRYHEADERSIZE as u64;
+        offset -= ENTRY_HEADER_SIZE as u64;
         self.file.seek(SeekFrom::Start(offset)).expect("error: offset invalid!");
-        let mut buffer = [0u8; ENTRYHEADERSIZE];
+        let mut buffer = [0u8; ENTRY_HEADER_SIZE];
         self.file.read(&mut buffer);
         let header = buffer.to_vec();
         let mut entry = Entry::new("nil","nil",0);
@@ -37,6 +43,7 @@ impl DBFile {
         entry.decode(buffer);
         entry
     }
+
     pub fn write(&mut self, entry: &mut Entry) -> u64 {
         entry.set_op_type(INSERT);
         self.file.write(&(entry.encode())).unwrap() as u64

@@ -2,9 +2,7 @@ extern crate serde_yaml;
 extern crate serde;
 
 use std::{fs, io};
-use std::collections::BTreeMap;
 use serde::{Serialize, Deserialize};
-use crate::DB;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct DBConfig {
