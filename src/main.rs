@@ -15,7 +15,10 @@ mod parse;
 #[tokio::main]
 async fn main() {
     println!("baby turn it on!");
+    let config = DBConfig::new("config.yaml");
     // let's go!!!
-    let mut db = DB::new("test.data");
-    DBService::listen(db,"127.0.0.1:8765",1024).await;
+    let mut db = DB::new(config.db_path.clone());
+    println!("bind: {}",config.port);
+    println!("db in: {}",config.db_path.clone());
+    DBService::listen(db,config.port,config.channel_cap).await;
 }

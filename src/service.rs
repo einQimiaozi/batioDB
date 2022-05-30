@@ -35,7 +35,7 @@ pub struct DBService {}
 impl DBService {
 
     // Start a DB service and start listening to ports
-    pub async fn listen(mut db: DB<'static>, address: &str, channel_cap: usize) {
+    pub async fn listen(mut db: DB, address: String, channel_cap: usize) {
         let (mut tx, mut rx):(Sender<Message>, Receiver<Message>) = mpsc::channel(channel_cap);
         let listener = TcpListener::bind(address).await.unwrap();
 

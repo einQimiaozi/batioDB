@@ -8,15 +8,15 @@ use crate::operations::{DELETE, INSERT, QUERY};
     Concurrency security is controlled by db_service.
     db_index is a B-tree structure that stores the mapping of each key to the offset of the data line in its file.
  */
-pub struct DB<'path> {
+pub struct DB {
     db_index: BTreeMap<String,u64>,
     db_file: DBFile,
-    file_path: &'path str,
+    file_path: String,
 }
 
-impl<'path> DB<'path> {
+impl DB {
     // When starting dB, DB will scan disk data and create db_index.
-    pub fn new(path: &'path str) -> Self {
+    pub fn new(path: String) -> Self {
         let mut db_file = DBFile::new(path.to_string()).expect("db file loaded error");
         let mut db_index: BTreeMap<String,u64> = DB::scan_index(&mut db_file);
         DB {
@@ -99,8 +99,8 @@ impl<'path> DB<'path> {
             new_offset += write_len;
             self.db_index.insert(key.to_string(), new_offset);
         }
-        std::fs::remove_file(self.file_path);
-        std::fs::rename("gc_tmp_file.data",self.file_path)
+        std::fs::remove_file(self.file_path.clone());
+        std::fs::rename("gc_tmp_file.data",self.file_path.clone())
             .expect("gc failed,you may need to manually rename the gc_tmp_file.data file to the your db file");
         std::fs::remove_file("gc_tmp_file.data".to_string());
     }

@@ -1,1 +1,3 @@
 db_path: "test.data"
+port: "127.0.0.1:8765"
+channel_cap: 32

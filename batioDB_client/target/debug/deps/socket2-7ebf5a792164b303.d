@@ -1,0 +1,11 @@
+/Users/ed-ein/CLionProjects/batioDB_client/target/debug/deps/socket2-7ebf5a792164b303.rmeta: /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/lib.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sockaddr.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/socket.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sockref.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sys/unix.rs
+
+/Users/ed-ein/CLionProjects/batioDB_client/target/debug/deps/libsocket2-7ebf5a792164b303.rlib: /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/lib.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sockaddr.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/socket.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sockref.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sys/unix.rs
+
+/Users/ed-ein/CLionProjects/batioDB_client/target/debug/deps/socket2-7ebf5a792164b303.d: /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/lib.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sockaddr.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/socket.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sockref.rs /Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sys/unix.rs
+
+/Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/lib.rs:
+/Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sockaddr.rs:
+/Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/socket.rs:
+/Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sockref.rs:
+/Users/ed-ein/.cargo/registry/src/mirrors.ustc.edu.cn-61ef6e0cd06fb9b8/socket2-0.4.4/src/sys/unix.rs:
